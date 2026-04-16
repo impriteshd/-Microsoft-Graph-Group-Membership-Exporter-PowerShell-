@@ -1,0 +1,125 @@
+Here is a clean **README.md** you can directly upload to GitHub for your script.
+
+---
+
+# 📘 Graph_Group_Members_Export_v2
+
+## 📌 Overview
+
+This PowerShell script connects to **Microsoft Graph API**, retrieves all Microsoft 365 groups, extracts their members, and exports the data into structured CSV files for reporting and analysis.
+
+It generates two outputs:
+
+* **GroupMembers.csv** → Full list of group members
+* **Summary.csv** → Member count per group
+
+---
+
+## ⚙️ Features
+
+* Connects securely to Microsoft Graph
+* Fetches all Azure AD / Microsoft 365 groups
+* Extracts group membership details
+* Handles errors per group (does not stop execution)
+* Exports results into CSV format
+* Automatically creates output folder if missing
+
+---
+
+## 📂 Output Location
+
+All files are saved to:
+
+```
+C:\Group Data
+```
+
+Generated files:
+
+* `GroupMembers.csv`
+* `Summary.csv`
+
+---
+
+## 🔐 Permissions Required
+
+Before running the script, ensure your account has:
+
+* `Group.Read.All`
+* `User.Read.All`
+
+These permissions are requested during sign-in.
+
+---
+
+## 🚀 How to Run
+
+### 1. Install Microsoft Graph PowerShell module (if not installed)
+
+```powershell
+Install-Module Microsoft.Graph -Scope CurrentUser
+```
+
+### 2. Run the script
+
+```powershell
+.\Graph_Group_Members_Export_v2.ps1
+```
+
+### 3. Sign in when prompted
+
+You will be asked to authenticate with Microsoft Graph.
+
+---
+
+## 📊 What Data You Get
+
+### GroupMembers.csv includes:
+
+* Group Name
+* Group ID
+* Member ID
+* Display Name
+* UPN (User Principal Name)
+* Object Type
+
+### Summary.csv includes:
+
+* Group Name
+* Group ID
+* Total member count per group
+
+---
+
+## 🛠️ Script Logic Flow
+
+1. Set output directory
+2. Connect to Microsoft Graph
+3. Fetch all groups
+4. Loop through each group
+5. Retrieve members
+6. Store results in memory
+7. Export CSV files
+8. Disconnect session
+
+---
+
+## ⚠️ Notes
+
+* Large environments may take time depending on number of groups
+* Script uses in-memory arrays (may be optimized for very large tenants)
+* Ensure internet access to Microsoft Graph endpoints
+
+---
+
+## 👤 Author
+
+Generated and maintained for Microsoft Graph reporting automation.
+
+---
+
+If you want next level upgrade, I can also:
+
+* convert this into a **professional GitHub repo structure**
+* add **logging + progress bar**
+* or make it **faster using parallel processing (big improvement)**
